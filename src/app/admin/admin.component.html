@@ -1,0 +1,47 @@
+<html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <body>
+        <section class="customer">
+            <div class="navbar">
+                <h5>Tiffin Ordering System</h5>
+                <div class="dropdown">
+                    <button class="dropdown-button" (click)="toggleDropdown()">Admin &#9660;</button>
+                    <div class="dropdown-content" id="dropdown-content">
+                      <a href="#" value="Edit Profile">Edit Profile</a>
+                      <a href="#" value="Logout" (click)="logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid mt-3">
+                <table class="table table-bordered">
+                  <thead class="thead-light">
+                    <tr>
+                      <th style="width: 5%;">Sl.no</th>
+                      <th style="width: 20%;">Vendor Name</th>
+                      <th style="width: 25%;">Business Name</th>
+                      <th style="width: 15%;">Status</th>
+                      <th style="width: 24%;">Details</th>
+                      <th style="width: 11%;">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor ="let vendor of vendors">
+                      <td>{{vendor.id}}</td>
+                      <td>{{vendor.vendorname}}</td>
+                      <td>{{vendor.businessname}}</td>
+                      <td>
+                        <span *ngIf="vendor.status==='active'; else elseBlock" class="badge badge-success" style="padding: 10px;">{{vendor.status}}</span>
+                        <ng-template #elseBlock><span class="badge badge-danger" style="padding: 10px;">{{ vendor.status }}</span></ng-template>
+                      </td>
+                      <td><button (click) = "viewDetails(vendor)" class="btn btn-info">View Vendor Information</button></td>
+                      <td><button *ngIf="vendor.status==='active'; else elseBlock2" (click) = "blockVendor(vendor)" class="btn btn-danger btn-block">Block</button>
+                      <ng-template #elseBlock2><button (click)="unblockVendor(vendor)" class="btn btn-success">Unblock</button></ng-template></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+        </section>
+    </body>
+</html>

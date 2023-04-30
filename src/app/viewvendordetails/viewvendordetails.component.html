@@ -1,0 +1,51 @@
+<html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <body>
+        <section class="viewvendor">
+            <div class="navbar">
+                <h5>Tiffin Ordering System</h5>
+            </div>
+
+            <div class="view-details">
+                <h3>Vendor Details</h3>
+                <div class="view-text">
+                    <div class="left-text">
+                        <div><label id="vendorName">Name : {{ vendor.vendorname }}</label></div>
+                        <div ><label id="businessName">Business name : {{ vendor.businessname }}</label></div>
+                    </div>
+                    <div >
+                        <label id="status">Status :</label>
+                        <span *ngIf="vendor.status==='active'; else elseBlock" class="badge badge-success">Active</span>
+                        <ng-template #elseBlock><span class="badge badge-danger">Blocked</span></ng-template>
+                    </div>
+                </div>
+                
+                <div class="food-items">
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                          <tr>
+                            <th style="width: 6%;">Item.no</th>
+                            <th>Item Name</th>
+                            <th>Contents</th>
+                            <th style="width: 25%;">Category</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let fooditem of vendor.fooditems">
+                            <td>{{ fooditem.itemid }}</td>
+                            <td>
+                                <div style="display: flex; align-items: center;">
+                                    <img [src]="fooditem.imageUrl" width="100"/>
+                                    <h6 style="margin-left: 10px;">{{ fooditem.itemname }}</h6>
+                                </div>
+                            </td>
+                            <td>{{ fooditem.contents }}</td>
+                            <td>{{ fooditem.category }}</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div> 
+        </section>
+    </body>
+</html>

@@ -1,0 +1,92 @@
+<html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <body>
+        <section class="vendor">
+            <div class="navbar">
+                <h5>Tiffin Ordering System</h5>
+                <div class="dropdown">
+                    <button class="dropdown-button" (click)="toggleDropdown()">Vendor &#9660;</button>
+                    <div class="dropdown-content" id="dropdown-content">
+                      <a href="#" value="Edit Profile">Edit Profile</a>
+                      <a href="#" value="Logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="left-dashboard">
+                <h5>Dashboard</h5>
+                <hr>
+                <button class="customer-order">View Customer Orders</button>
+            </div>
+
+            <div class="content-table">
+                <div class="search-boxes">
+                    <label>View By :</label>
+                    <select (change)="onCategorySelected($event)">
+                        <option disabled selected>Choose an option</option>
+                        <option>Breakfast</option>
+                        <option>Lunch</option>
+                        <option>Dinner</option>
+                    </select>
+                </div>
+
+                <div class="food-items">
+                    <table class="table table-bordered">
+                        <thead class="thead-light">
+                          <tr>
+                            <th style="width: 6%;">Item.no</th>
+                            <th>Item Name</th>
+                            <th>Contents</th>
+                            <th style="width: 25%;">Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let fooditem of vendor.fooditems">
+                            <td>{{ fooditem.itemid }}</td>
+                            <td>
+                                <div style="display: flex; align-items: center;">
+                                    <img [src]="fooditem.imageUrl" width="100"/>
+                                    <h6 style="margin-left: 10px;">{{ fooditem.itemname }}</h6>
+                                </div>
+                            </td>
+                            <td>{{ fooditem.contents }}</td>
+                            <td>
+                                <button class="action-btns" id="edit" (click)="editFoodItem(fooditem)">Edit</button>
+                                <button class="action-btns" id="remove" (click)="removeFoodItem(fooditem)">Remove</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="card" *ngIf="showEditForm">
+                        <div class="card-header">
+                          Edit Food Item
+                        </div>
+                        <div class="card-body">
+                          <form #editForm="ngForm">
+                            <div class="form-group">
+                              <label for="itemname">Item Name</label>
+                              <input type="text" class="form-control" id="itemname" [(ngModel)]="selectedFoodItem.itemname" name="itemname" required>
+                            </div>
+                            <div class="form-group">
+                              <label for="contents">Contents</label>
+                              <input type="text" class="form-control" id="contents" [(ngModel)]="selectedFoodItem.contents" name="contents" required>
+                            </div>
+                            <div class="form-group">
+                              <label for="imageUrl">Image URL</label>
+                              <input type="text" class="form-control" id="imageUrl" [(ngModel)]="selectedFoodItem.imageUrl" name="imageUrl" required>
+                            </div>
+                            <div class="form-group">
+                              <label for="price">Price</label>
+                              <input type="number" class="form-control" id="price" [(ngModel)]="selectedFoodItem.price" name="price" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" (click)="saveFoodItem()">Save</button>
+                            <button type="button" class="btn btn-secondary ml-2" (click)="cancelEdit()">Cancel</button>
+                          </form>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,105 @@
+img{
+	width: 100%;
+}
+.login {
+    height: 100vh;
+    width: 100vw;
+    background: radial-gradient(#d59a64, #dd5e0f);
+}
+.login_box {
+    width: 60%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 1px 4px 22px -8px #0004;
+    display: flex;
+    overflow: hidden;
+}
+.login_box .left{
+  width: 41%;
+  height: 100%;
+  padding: 25px 25px;
+  
+}
+.login_box .right{
+  width: 59%;
+  height: 100%  
+}
+
+.left .contact {
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    height: 100%;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.left h3 {
+  text-align: center;
+  font-weight: 800;
+  padding-bottom: 10%;
+  padding-top: 10%;
+}
+
+.left input, select {
+  border: none;
+  margin: 15px 0px;
+  border-bottom: 1px solid #4f30677d;
+  padding: 7px 9px;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.left{
+	background: linear-gradient(-45deg, #dcd7e0, #fff);
+}
+
+.submit {
+  border: none;
+  padding: 10px 50px;
+  border-radius: 8px;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  background: #763a15;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0px 9px 15px -11px rgb(129, 74, 19);
+}
+
+
+
+.right {
+	background: linear-gradient(to bottom left, rgb(0, 0, 0), transparent),url(https://res.cloudinary.com/swiggy/image/upload/f_auto,q_auto,fl_lossy/lslxl8txzijngwdjwvaa);
+  background-size: cover;
+	color: #fff;
+	position: relative;
+}
+
+.right .right-text{
+  display: flex;
+  height: 100%;
+  position: relative;
+  align-items: right;
+}
+
+.right-text h2{
+  width: 100%;
+  text-align: right;
+  font-size: 60px;
+  font-weight: 700;
+  padding: 4%;
+}
+
+
+
+

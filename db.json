@@ -1,0 +1,123 @@
+{
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "role": "Admin",
+      "id": 1
+    }
+  ],
+  "vendors": [
+    {
+      "id": 1,
+      "vendorname": "Sarvesh",
+      "email": "vendor@gmail.com",
+      "businessname": "SLV Thindi",
+      "password": "sarvi",
+      "status": "active",
+      "fooditems": [
+        {
+          "itemid": 1,
+          "itemname": "Idli and Vada",
+          "contents": "2x Idli, 1x Vada, 1x Chutney, 1x Sambar",
+          "category": "Breakfast",
+          "imageUrl": "../../assets/images/idli.jpg",
+          "price": 30
+        },
+        {
+          "itemid": 2,
+          "itemname": "Masala Dosa",
+          "contents": "1x Dosa, 1x Chutney, 1x Sambar",
+          "category": "Breakfast",
+          "imageUrl": "../../assets/images/dosa.jpg",
+          "price": 30
+        },
+        {
+          "itemid": 3,
+          "itemname": "Pongal",
+          "contents": "1x Pongal, 1x Chutney",
+          "category": "Lunch",
+          "imageUrl": "../../assets/images/pongal.jpg",
+          "price": 25
+        },
+        {
+          "itemid": 4,
+          "itemname": "Chapathi",
+          "contents": "2x Chapathi",
+          "category": "Dinner",
+          "imageUrl": "../../assets/images/chapathi.jpg",
+          "price": 20
+        },
+        {
+          "itemid": 5,
+          "itemname": "Plane rice",
+          "contents": "1 bowl plane rice",
+          "category": "Dinner",
+          "imageUrl": "../../assets/images/rice.jpg",
+          "price": 20
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "vendorname": "Shridhar",
+      "email": "vendor@gmail.com",
+      "businessname": "SLV Thindi",
+      "password": "sarvi",
+      "status": "active",
+      "fooditems": [
+        {
+          "itemid": 1,
+          "itemname": "Pulav",
+          "contents": "2x Idli, 1x Vada, 1x Chutney, 1x Sambar",
+          "category": "Breakfast",
+          "imageUrl": "../../assets/images/pulav.jpg",
+          "price": 50
+        }
+      ]
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "customername": "Sarvesh",
+      "customeremail": "sarvi@gmail.com",
+      "password": "sarvi",
+      "address": "Bangalore",
+      "contact": 9482729175
+    }
+  ],
+  "cart": [
+    {
+      "itemid": 1,
+      "itemname": "Idli and Vada",
+      "quantity": 1,
+      "fromdate": "2023-04-06T00:00:00.000Z",
+      "todate": "2023-04-08T00:00:00.000Z",
+      "totalprice": 30,
+      "id": 1
+    },
+    {
+      "itemid": 1,
+      "itemname": "Idli and Vada",
+      "quantity": 1,
+      "fromdate": "2023-05-10T00:00:00.000Z",
+      "todate": "2023-05-18T00:00:00.000Z",
+      "totalprice": 30,
+      "id": 2
+    }
+  ],
+  "orders": [
+    {
+      "customerid": 1,
+      "orderid": 1,
+      "vendorid": 1,
+      "itemid": 1,
+      "itemname": "Idli and Vada",
+      "quantity": 2,
+      "totalprice": 60,
+      "fromdate": "24/04/2023",
+      "todate": "24/04/2023"
+    }
+  ]
+}

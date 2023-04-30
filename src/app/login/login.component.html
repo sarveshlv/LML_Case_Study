@@ -1,0 +1,29 @@
+<html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<body>
+	<section class="login">
+		<div class="login_box">
+			<div class="left">
+				<div class="contact">
+					<h3>SIGN IN</h3>
+					<input type="text" [(ngModel)]="email" placeholder="Email">
+					<input type="password" [(ngModel)]="password" placeholder="Password">
+					<select name="options" id="options" [(ngModel)]="role">
+						<option value="" disabled selected>Role :</option>
+						<option value="Admin">Admin</option>
+						<option value="Vendor">Vendor</option>
+						<option value="Customer">Customer</option>
+					</select>
+					<button (click)="login()" class="submit">Login</button>
+					<hr>
+				</div>
+			</div>
+			<div class="right">
+				<div class="right-text">
+					<h2>Tiffin <br> Ordering <br> System</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
