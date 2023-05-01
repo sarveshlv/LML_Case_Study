@@ -12,6 +12,7 @@ import { ViewvendordetailsComponent } from './viewvendordetails/viewvendordetail
 import { VendorComponent } from './vendor/vendor.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ViewcartComponent } from './viewcart/viewcart.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ViewcartComponent } from './viewcart/viewcart.component';
     VendorComponent,
     CustomerComponent,
     ViewcartComponent,
+    OrdersComponent,
     
   ],
   imports: [

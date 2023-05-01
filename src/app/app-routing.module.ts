@@ -7,6 +7,7 @@ import { ViewvendordetailsComponent } from './viewvendordetails/viewvendordetail
 import { VendorComponent } from './vendor/vendor.component';
 import { CustomerComponent } from './customer/customer.component';
 import { ViewcartComponent } from './viewcart/viewcart.component';
+import { OrdersComponent } from './orders/orders.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch:'full'},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path:'vendor/:id', component:VendorComponent, canActivate: [AuthGuardService]},
   {path:'customer', component:CustomerComponent},
   {path:'customer/:id', component:CustomerComponent, canActivate: [AuthGuardService]},
-  {path:'viewcart', component: ViewcartComponent}
+  {path:'viewcart', component: ViewcartComponent},
+  {path:'orders',component:OrdersComponent}
 ];
 
 @NgModule({

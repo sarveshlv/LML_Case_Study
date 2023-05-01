@@ -39,15 +39,15 @@ export class VendorService {
   }
 
   updateVendorFoodItem(id: number, itemid: number, updatedFoodItem: FoodItem): Observable<any> {
-    return this.http.put<FoodItem>(`${this.baseUrl}/${id}/fooditems/${itemid}`, updatedFoodItem);
+    return this.http.put<FoodItem>(`${this.baseUrl}/${id}?fooditems?itemid=${itemid}`, updatedFoodItem);
   }
 
-  deleteFoodItem(id: number, itemid: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}/fooditems/${itemid}`);
+  deleteFoodItem(id: number, fooditem: FoodItem): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}/fooditems?itemid=${fooditem.itemid}`);
   }
 
   getFoodItemsByCategory(id: number,category: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}/fooditems/category=${category}`);
+    return this.http.get(`${this.baseUrl}/${id}?fooditems?category=${category}`);
   }
   
 }

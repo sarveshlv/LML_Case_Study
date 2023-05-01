@@ -36,7 +36,9 @@ export class VendorComponent {
   saveFoodItem() {
     const id = this.route.snapshot.params['id']; 
     const itemid = this.route.snapshot.params['itemid'];
-    this.vendorService.updateVendorFoodItem(id, itemid, this.selectedFoodItem);
+    this.vendorService.updateVendorFoodItem(id, itemid, this.selectedFoodItem).subscribe(res => {
+      alert("Done")
+    });
     this.showEditForm = false;
   }
 
@@ -48,18 +50,23 @@ export class VendorComponent {
   removeFoodItem(fooditem: FoodItem) {
     const id = this.route.snapshot.params['id']; 
     if (confirm('Are you sure you want to delete this food item?')) {
-      this.vendorService.deleteFoodItem(id,fooditem.itemid).subscribe(() => {
-        this.vendorService.getVendorFoodItems(id);
-      }, error => console.log(error));
+      this.vendorService.deleteFoodItem(id, fooditem).subscribe(() => {
+        const index = this.vendor.fooditems.findIndex(item => item.itemid === fooditem.itemid);
+      if(index !== -1) {
+        this.vendor.fooditems.splice(index,1);
+      }
+      })
     }
   }
 
   onCategorySelected(event: any) {
     const category = event.target.value;
-    if (category === 'Choose an option') {
+    if (category === 'All') {
       // If no category is selected, show all food items
       const id = this.route.snapshot.params['id'];
-      this.vendorService.getVendorFoodItems(id);
+      this.vendorService.getVendorById(id).subscribe((data) => {
+        this.vendor = data;
+      });
     } else {
       // Otherwise, filter the food items by category
       this.filterFoodItemsByCategory(category);
@@ -69,7 +76,8 @@ export class VendorComponent {
   filterFoodItemsByCategory(category: string) {
     const id = this.route.snapshot.params['id'];
     this.vendorService.getFoodItemsByCategory(id,category).subscribe(data => {
-      this.vendor = data;
+      const filteredItems = data.fooditems.filter((item: { category: string; }) => item.category === category);
+      this.vendor.fooditems = filteredItems;
     });
   }
 

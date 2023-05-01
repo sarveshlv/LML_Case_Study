@@ -23,7 +23,7 @@
                 <div class="search-boxes">
                     <label>View By :</label>
                     <select (change)="onCategorySelected($event)">
-                        <option disabled selected>Choose an option</option>
+                        <option>All</option>
                         <option>Breakfast</option>
                         <option>Lunch</option>
                         <option>Dinner</option>
@@ -41,8 +41,8 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let fooditem of vendor.fooditems">
-                            <td>{{ fooditem.itemid }}</td>
+                          <tr *ngFor="let fooditem of vendor.fooditems; let i = index">
+                            <td>{{ i+1 }}</td>
                             <td>
                                 <div style="display: flex; align-items: center;">
                                     <img [src]="fooditem.imageUrl" width="100"/>

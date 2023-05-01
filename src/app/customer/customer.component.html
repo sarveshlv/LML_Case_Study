@@ -17,7 +17,7 @@
             <div class="left-dashboard">
                 <h5>Dashboard</h5>
                 <hr>
-                <button class="dashboard-btns">My Orders</button>
+                <button class="dashboard-btns" (click)="viewOrders()">My Orders</button>
                 <button class="dashboard-btns" (click)="viewCart()">Cart</button>
             </div>
 
@@ -78,10 +78,10 @@
                             
                                 <div class="date-picker">
                                     <label>From :</label>
-                                    <input type="date" id="fromdate" name="birthday">
+                                    <input type="date" [id]="'fromdate-' + fooditem.itemid" name="from-date">
                                     <br>
                                     <label>To :</label>
-                                    <input type="date" id="todate" name="birthday" style="margin-left: 25px">
+                                    <input type="date" [id]="'todate-' + fooditem.itemid" name="to-date" style="margin-left: 25px">
                                     <br>
                                     <label for="product" class="price" id="total-tag">Total : {{ fooditem.price * selectedQuantity }}/-</label>
                                     <button class="add-cart" (click)="addToCart(fooditem)"><i class="bi bi-cart"></i>Add to cart</button>

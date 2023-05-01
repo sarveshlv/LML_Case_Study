@@ -1,9 +1,9 @@
-export interface Cart {
+export interface Orders {
     itemid: number;
     itemname: string;
     quantity: number;
-    fromdate: string;
-    todate: string;
+    fromdate: Date;
+    todate: Date;
     totalprice: number;
     id: number;
 }

@@ -7,6 +7,7 @@ import { Customer } from '../customer.model';
 import { Vendor } from '../vendor.model';
 import { FoodItem } from '../fooditem.model';
 import { Cart } from '../cart.model';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-customer',
@@ -24,7 +25,8 @@ export class CustomerComponent {
     private http: HttpClient, 
     private vendorService: VendorService, 
     private customerService: CustomerService,
-    private router: Router) {}
+    private router: Router,
+    private cartService: CartService) {}
 
   ngOnInit(): void {
     const id=this.route.snapshot.params['id'];
@@ -43,9 +45,9 @@ export class CustomerComponent {
   }
 
   addToCart(fooditem: FoodItem) {
-    const from = document.getElementById("fromdate") as HTMLInputElement;
+    const from = document.getElementById("fromdate-" + fooditem.itemid) as HTMLInputElement;
     const fdate = from.value;
-    const to = document.getElementById("todate") as HTMLInputElement;
+    const to = document.getElementById("todate-" + fooditem.itemid) as HTMLInputElement;
     const tdate = to.value;
 
     if(!fdate || !tdate) {
@@ -57,15 +59,19 @@ export class CustomerComponent {
       itemid: fooditem.itemid,
       itemname: fooditem.itemname,
       quantity: this.selectedQuantity,
-      fromdate: new Date(Date.parse(fdate)),
-      todate: new Date(Date.parse(tdate)),
-      totalprice: fooditem.price * this.selectedQuantity
+      fromdate: fdate,
+      todate: tdate,
+      totalprice: fooditem.price * this.selectedQuantity,
+      id: 0
     };
 
-    this.customerService.addItemToCart(cartItem);
+    this.cartService.addItemToCart(cartItem);
   
   }
 
+  viewOrders() {
+    this.router.navigate(['/orders']);
+  }
   viewCart() {
     this.router.navigate(['/viewcart']);
   }
