@@ -27,7 +27,7 @@
         {
           "itemid": 2,
           "itemname": "Masala Dosa",
-          "contents": "2x Idli, 1x Vada, 1x Chutney, 1x Sambar",
+          "contents": "1x Masala Dosa, 1x Chutney, 1x Sambar",
           "category": "Breakfast",
           "imageUrl": "../../assets/images/dosa.jpg",
           "price": 50
@@ -35,7 +35,7 @@
         {
           "itemid": 3,
           "itemname": "Pongal",
-          "contents": "2x Idli, 1x Vada, 1x Chutney, 1x Sambar",
+          "contents": "1 bowl of khara pongal",
           "category": "Lunch",
           "imageUrl": "../../assets/images/pongal.jpg",
           "price": 50
@@ -43,9 +43,17 @@
         {
           "itemid": 4,
           "itemname": "Chapathi",
-          "contents": "2x Idli, 1x Vada, 1x Chutney, 1x Sambar",
+          "contents": "2x chapathi pieces",
           "category": "Lunch",
           "imageUrl": "../../assets/images/chapathi.jpg",
+          "price": 50
+        },
+        {
+          "itemid": 5,
+          "itemname": "White Rice",
+          "contents": "! bowl white rice",
+          "category": "Dinner",
+          "imageUrl": "../../assets/images/rice.jpg",
           "price": 50
         }
 

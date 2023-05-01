@@ -95,6 +95,17 @@
     width: 80%;
   }
 
+  .add-item-btn {
+    width: 40%;
+    padding: 8px 5px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 13px;
+    margin-top: 150%;
+    background-color: #F6AA46;
+  }
+
   .content-table {
     width: 80%;
     height: 100%;

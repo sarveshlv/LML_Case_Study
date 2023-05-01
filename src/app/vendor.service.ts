@@ -46,6 +46,10 @@ export class VendorService {
     return this.http.delete(`${this.baseUrl}/${id}/fooditems?itemid=${fooditem.itemid}`);
   }
 
+  addFoodItem(vendor: Vendor) {
+    return this.http.post(this.baseUrl,vendor);
+  }
+
   getFoodItemsByCategory(id: number,category: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}?fooditems?category=${category}`);
   }

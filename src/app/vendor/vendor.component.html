@@ -17,6 +17,7 @@
                 <h5>Dashboard</h5>
                 <hr>
                 <button class="customer-order">View Customer Orders</button>
+                <button class="add-item-btn" (click)="openAddItemModal(addItemModal)">Add Item</button>
             </div>
 
             <div class="content-table">
@@ -88,5 +89,42 @@
                 </div>
             </div>
         </section>
+
+        <ng-template #addItemModal let-modal>
+          <div class="modal-header">
+            <h4 class="modal-title">Add Food Item</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form (ngSubmit)="onSubmit()">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="itemname">Item Name</label>
+                <input type="text" class="form-control" id="itemname" [(ngModel)]="fooditem.itemname" name="itemname" required>
+              </div>
+              <div class="form-group">
+                <label for="contents">Contents</label>
+                <input type="text" class="form-control" id="contents" [(ngModel)]="fooditem.contents" name="contents" required>
+              </div>
+              <div class="form-group">
+                <label for="category">Category</label>
+                <input type="text" class="form-control" id="category" [(ngModel)]="fooditem.category" name="category" required>
+              </div>
+              <div class="form-group">
+                <label for="imageUrl">Image URL</label>
+                <input type="text" class="form-control" id="imageUrl" [(ngModel)]="fooditem.imageUrl" name="imageUrl" required>
+              </div>
+              <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" [(ngModel)]="fooditem.price" name="price" required>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Add</button>
+              <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Close</button>
+            </div>
+          </form>
+        </ng-template>
     </body>
 </html>

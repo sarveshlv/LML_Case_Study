@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { Vendor } from '../vendor.model';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { VendorService } from '../vendor.service';
 import { FoodItem } from '../fooditem.model';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -18,8 +19,9 @@ export class VendorComponent {
   selectedFoodItem! : FoodItem;
   showEditForm: boolean = false;
   fooditem!: FoodItem;
+  modalReference!: NgbModalRef;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private vendorService: VendorService) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient, private vendorService: VendorService, private modalService: NgbModal) {}
 
   ngOnInit(): void {
     const id=this.route.snapshot.params['id'];
@@ -31,6 +33,17 @@ export class VendorComponent {
   editFoodItem(fooditem: FoodItem) {
     this.selectedFoodItem = fooditem;
     this.showEditForm = true;
+  }
+
+  openAddItemModal(content: any) {
+    this.modalReference = this.modalService.open(content, {backdrop: false});
+  }
+
+  onSubmit() {
+    this.vendorService.addFoodItem(this.vendor).subscribe(() => {
+      this.ngOnInit();
+      this.modalReference.close();
+    })
   }
 
   saveFoodItem() {
