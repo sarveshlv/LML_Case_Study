@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators'
 })
 export class AuthService {
 
-  private loggedIn = true;
+  private loggedIn = false;
 
   constructor(private http: HttpClient) {}
 
@@ -37,7 +37,7 @@ export class AuthService {
           } else {
             throw new Error("Invalid Username or Password!");
           }
-          return vendors;
+          return vendors[0];
         })
       );
   }
@@ -52,7 +52,7 @@ export class AuthService {
           } else {
             throw new Error("Invalid Username or Password!");
           }
-          return customers;
+          return customers[0];
         })
       );
   }

@@ -35,9 +35,10 @@ export class LoginComponent {
       .subscribe(
         vendors => {
           if (this.authService.isLoggedIn()) {
-            // redirect to admin component if login is successful
-            const url = `/vendor/${vendors.id}`
-            this.router.navigateByUrl(url);
+            // redirect to vendor component if login is successful
+            // const url = `vendor/${vendors.id}`;
+            // this.router.navigateByUrl(url);
+            this.router.navigate([`/vendor/${vendors.id}`]);
           }
         },
         error => {
@@ -50,7 +51,7 @@ export class LoginComponent {
         customers => {
           if (this.authService.isLoggedIn()) {
             // redirect to admin component if login is successful
-            const url = `/customer/${customers.id}`
+            const url = `/customer/${customers.id}`;
             this.router.navigateByUrl(url);
           }
         },
